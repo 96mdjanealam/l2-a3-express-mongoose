@@ -22,8 +22,8 @@ This API allows for the creation, retrieval, update, and deletion (CRUD) of book
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd l2-a3-node-express
+git clone https://github.com/96mdjanealam/l2-a3-express-mongoose.git
+cd l2-a3-express-mongoose
 
 # Install dependencies
 npm install
@@ -51,7 +51,7 @@ npm run build
 
 ### 📘 Books
 
-#### `POST /books`
+#### `POST https://l2-a3-express-mongoose.vercel.app/api/books`
 
 Create a new book.
 
@@ -65,7 +65,7 @@ Create a new book.
 }
 ```
 
-#### `GET /books`
+#### `GET https://l2-a3-express-mongoose.vercel.app/api/books`
 
 Retrieve all books. Supports query parameters:
 
@@ -74,15 +74,15 @@ Retrieve all books. Supports query parameters:
 * `sort` — `asc` or `desc`
 * `limit` — number of results
 
-#### `GET /books/:bookId`
+#### `GET https://l2-a3-express-mongoose.vercel.app/api/books/:bookId`
 
 Retrieve a single book by ID.
 
-#### `PUT /books/:bookId`
+#### `PUT https://l2-a3-express-mongoose.vercel.app/api/books/:bookId`
 
 Update book details. If `copies > 0`, `available` is automatically set to `true`.
 
-#### `DELETE /books/:bookId`
+#### `DELETE https://l2-a3-express-mongoose.vercel.app/api/books/:bookId`
 
 Delete a book by ID.
 
@@ -90,33 +90,45 @@ Delete a book by ID.
 
 ### 🔄 Borrow
 
-#### `POST /borrow`
+#### `POST https://l2-a3-express-mongoose.vercel.app/api/borrow`
 
 Borrow book copies.
 
 ```json
 {
-  "book": "bookId",
-  "quantity": 2
+  "book": "64ab3f9e2a4b5c6d7e8f9012",
+  "quantity": 2,
+  "dueDate": "2025-07-18T00:00:00.000Z"
 }
 ```
 
 Checks for available copies before allowing borrowing.
 
-#### `GET /borrow`
+#### `GET https://l2-a3-express-mongoose.vercel.app/api/borrow`
 
 Returns aggregated borrow data:
 
 ```json
-[
-  {
-    "book": {
-      "title": "Example Title",
-      "isbn": "123-456-789"
-    },
-    "totalQuantity": 5
-  }
-]
+{
+    "success": true,
+    "message": "Borrowed books summary retrieved successfully",
+    "data": [
+        {
+            "totalQuantity": 20,
+            "book": {
+                "title": "The earth book",
+                "isbn": "9780553380162"
+            }
+        },
+        {
+            "totalQuantity": 7,
+            "book": {
+                "title": "The Theory of Everything",
+                "isbn": "9780553380163"
+            }
+        }
+    ]
+}
 ```
 
 ---
