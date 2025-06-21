@@ -14,7 +14,7 @@ This API allows for the creation, retrieval, update, and deletion (CRUD) of book
 * 📈 Borrow book copies and track borrow records
 * 🧮 Aggregate borrow statistics per book
 * 🔍 Filter and sort books with query parameters
-* ✅ Built using TypeScript with ESLint integration
+* ✅ Built using TypeScript
 
 ---
 
