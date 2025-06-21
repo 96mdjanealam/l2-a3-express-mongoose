@@ -57,11 +57,13 @@ Create a new book.
 
 ```json
 {
-  "title": "Book Title",
-  "author": "Author Name",
-  "genre": "Fiction",
+  "title": "The Theory of Everything",
+  "author": "Stephen Hawking",
+  "genre": "SCIENCE",
+  "isbn": "9780553380163",
+  "description": "An overview of cosmology and black holes.",
   "copies": 5,
-  "isbn": "123-456-789"
+  "available": true
 }
 ```
 
@@ -81,6 +83,12 @@ Retrieve a single book by ID.
 #### `PUT https://l2-a3-express-mongoose.vercel.app/api/books/:bookId`
 
 Update book details. If `copies > 0`, `available` is automatically set to `true`.
+
+```json
+{
+  "copies": 50
+}
+```
 
 #### `DELETE https://l2-a3-express-mongoose.vercel.app/api/books/:bookId`
 
